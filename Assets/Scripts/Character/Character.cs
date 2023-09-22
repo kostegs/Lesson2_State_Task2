@@ -3,10 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 public class Character : MonoBehaviour, IWorker, IRester
 {
-    [SerializeField] private Mover _mover;
+    [SerializeField] private IMover _mover;
+    [SerializeField] private CharacterConfig _config;
+    [SerializeField] private WayPoints _waypoints;
 
-    public Mover Mover => _mover;
-
+    public IMover Mover => _mover;   
+    public CharacterConfig CharacterConfig => _config; 
+    public WayPoints WayPoints => _waypoints;
+    
     private CharacterStateMachine _stateMachine;
     private bool _isInitialized;
 

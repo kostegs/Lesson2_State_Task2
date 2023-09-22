@@ -15,9 +15,9 @@ public class CharacterStateMachine : IStateSwitcher
 
         _states = new List<IState>()
         {
-            new RestingState(this, _character),
-            new MovingState(this, _character),
-            new WorkingState(this, _character),
+            new RestingState(this, _character, _character.CharacterConfig),
+            new MovingState(this, _character.Mover, _character.transform, _character.CharacterConfig, _character.WayPoints),
+            new WorkingState(this, _character, _character.CharacterConfig),
         };
 
         _previousStates = new Stack<IState>();
